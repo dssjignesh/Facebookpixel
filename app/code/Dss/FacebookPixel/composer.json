@@ -1,5 +1,5 @@
 {
-  "name": "dss/facebook-pixel",
+  "name": "dss/m2-fbpixel",
   "description": "dss facebook pixel for magento 2",
   "type": "magento2-module",
   "version": "0.0.1",
