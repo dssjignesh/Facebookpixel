@@ -289,14 +289,14 @@ class Code extends Template
                     'item_price' => $item->getPrice()
                 ];
                 $product['content_ids'][] = $item->getSku();
-                $num_item += round($item->getQtyOrdered());
+                $num_item += (int)$item->getQtyOrdered();
             }
             $data = [
                 'content_ids' => $product['content_ids'],
                 'contents' => $product['contents'],
                 'content_type' => 'product',
                 'value' => number_format(
-                    $order->getGrandTotal(),
+                    (float)$order->getGrandTotal(),
                     2,
                     '.',
                     ''

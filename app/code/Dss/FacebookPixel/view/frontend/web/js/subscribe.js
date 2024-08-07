@@ -16,7 +16,7 @@ define([
     'ko',
     'uiComponent',
     'Magento_Customer/js/customer-data'
-], function (jQuery, ko, Component, customerData) {
+], function ($, ko, Component, customerData) {
     'use strict';
     return Component.extend({
         initialize: function () {
@@ -27,8 +27,8 @@ define([
                     for (var eventCounter = 0; eventCounter < loadedData.events.length; eventCounter++) {
                         var eventData = loadedData.events[eventCounter];
                         if ("undefined" !== typeof eventData.eventAdditional && eventData.eventAdditional) {
-                            jQuery('.dss-subscribe-email').text(eventData.eventAdditional.email);
-                            jQuery('.dss-subscribe-id').text(eventData.eventAdditional.id);
+                            $('.dss-subscribe-email').text(eventData.eventAdditional.email);
+                            $('.dss-subscribe-id').text(eventData.eventAdditional.id);
                             customerData.set('dss-fbpixel-subscribe', {});
                             return window.fb();
                         }
