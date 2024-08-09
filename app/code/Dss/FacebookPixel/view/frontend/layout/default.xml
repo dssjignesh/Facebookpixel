@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Digit Software Solutions.
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the EULA
+* that is bundled with this package in the file LICENSE.txt.
+*
+* @category  Dss
+* @package   Dss_FacebookPixel
+* @author    Extension Team
+* @copyright Copyright (c) 2024 Digit Software Solutions. ( https://digitsoftsol.com )
+*/
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="after.body.start">
+            <block class="Dss\FacebookPixel\Block\Code"
+                   name="dss.facebook.pixel."
+                   template="Dss_FacebookPixel::code.phtml"
+                   before="-"
+                   ifconfig="dss_facebook_pixel/general/active" />
+            <block class="Magento\Framework\View\Element\Template" name="dss.fbpixel.atc" after="dss.facebook.pixel."
+                   ifconfig="dss_facebook_pixel/general/active"
+                   template="Dss_FacebookPixel::atc.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="dssFbpixelsAtc" xsi:type="array">
+                                <item name="component" xsi:type="string">Dss_FacebookPixel/js/atc</item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Template" name="dss.fbpixel.subscribe"
+                   after="dss.facebook.pixel."
+                   ifconfig="dss_facebook_pixel/general/active"
+                   template="Dss_FacebookPixel::subscribe.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="dssFbpixelsSubscribe" xsi:type="array">
+                                <item name="component" xsi:type="string">Dss_FacebookPixel/js/subscribe</item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

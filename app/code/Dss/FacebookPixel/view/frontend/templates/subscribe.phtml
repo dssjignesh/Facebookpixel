@@ -1,0 +1,27 @@
+<?php
+/**
+ * Digit Software Solutions.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ *
+ * @category  Dss
+ * @package   Dss_FacebookPixel
+ * @author    Extension Team
+ * @copyright Copyright (c) 2024 Digit Software Solutions. ( https://digitsoftsol.com )
+ */
+?>
+<div data-role="dss-fbpixel-subscribe" style="display:none;">
+</div>
+<span class="dss-subscribe-email" style="display:none;"></span>
+<span class="dss-subscribe-id" style="display:none;"></span>
+<script type="text/x-magento-init">
+    {
+        "[data-role='dss-fbpixel-subscribe']":
+            {
+                "Magento_Ui/js/core/app": <?= $block->getJsLayout();?>
+            }
+    }
+</script>

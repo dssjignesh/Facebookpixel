@@ -1,0 +1,26 @@
+<?php
+/**
+ * Digit Software Solutions.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ *
+ * @category  Dss
+ * @package   Dss_FacebookPixel
+ * @author    Extension Team
+ * @copyright Copyright (c) 2024 Digit Software Solutions. ( https://digitsoftsol.com )
+ */
+?>
+<div data-role="dss-fbpixel-atc" style="display:none;">
+
+</div>
+<script type="text/x-magento-init">
+    {
+        "[data-role='dss-fbpixel-atc']":
+            {
+                "Magento_Ui/js/core/app": <?= $block->getJsLayout();?>
+            }
+    }
+</script>
