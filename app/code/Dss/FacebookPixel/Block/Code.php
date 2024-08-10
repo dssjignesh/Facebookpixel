@@ -53,10 +53,10 @@ class Code extends Template
     /**
      * Check disable
      *
-     * @return int
+     * @return int|string
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function checkDisable()
+    public function checkDisable(): int|string
     {
         $data   = $this->getFacebookPixelData();
         $action = $data['full_action_name'];
@@ -79,9 +79,9 @@ class Code extends Template
      *
      * @param string $action
      * @param array $listDisableCode
-     * @return int
+     * @return int|string
      */
-    private function checkDisableMore($action, $listDisableCode)
+    private function checkDisableMore($action, $listDisableCode): int|string
     {
         $arrCheckout = [
             'checkout_index_index',
@@ -109,9 +109,9 @@ class Code extends Template
      *
      * @param string $action
      * @param array $listDisableCode
-     * @return int
+     * @return int|string
      */
-    private function checkDisableMore2($action, $listDisableCode)
+    private function checkDisableMore2($action, $listDisableCode): int|string
     {
         if (($action == 'catalogsearch_advanced_result'
             || $action == 'catalogsearch_advanced_index') && in_array('advanced_search_page', $listDisableCode)) {
@@ -128,7 +128,7 @@ class Code extends Template
      * @return false|int|string
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getProduct()
+    public function getProduct(): false|int|string
     {
         $productData = 404;
         $data   = $this->getFacebookPixelData();
@@ -147,7 +147,7 @@ class Code extends Template
      * @return false|int|string
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getCategory()
+    public function getCategory(): false|int|string
     {
         $categoryData = 404;
         $data   = $this->getFacebookPixelData();
@@ -163,10 +163,10 @@ class Code extends Template
     /**
      * Get order html
      *
-     * @return array|int
+     * @return array|int|string
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getOrder()
+    public function getOrder(): array|int|string
     {
         $orderData = 404;
         $data   = $this->getFacebookPixelData();
@@ -185,7 +185,7 @@ class Code extends Template
      * @return int|string
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getRegistration()
+    public function getRegistration(): int|string
     {
         $session = $this->fbPixelSession->create();
         $registration = 404;
@@ -202,7 +202,7 @@ class Code extends Template
      * @return int|string
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getAddToWishList()
+    public function getAddToWishList(): int|string
     {
         $session = $this->fbPixelSession->create();
         $add_to_wishlist = 404;
@@ -219,7 +219,7 @@ class Code extends Template
      * @return int|string
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getInitiateCheckout()
+    public function getInitiateCheckout(): int|string
     {
         $session = $this->fbPixelSession->create();
         $initiateCheckout = 404;
@@ -236,7 +236,7 @@ class Code extends Template
      * @return int|string
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getSearch()
+    public function getSearch(): int|string
     {
         $session = $this->fbPixelSession->create();
         $search = 404;
@@ -250,9 +250,9 @@ class Code extends Template
     /**
      * Returns data needed for purchase tracking.
      *
-     * @return array|int
+     * @return array|int|string
      */
-    public function getOrderData()
+    public function getOrderData(): array|int|string
     {
         $order = $this->checkoutSession->create()->getLastRealOrder();
         $orderId = $order->getIncrementId();
@@ -325,7 +325,7 @@ class Code extends Template
      * @param string $key
      * @return string
      */
-    protected function getValueByKey($array, $key)
+    protected function getValueByKey($array, $key): string
     {
         if (!empty($array) && isset($array[$key])) {
             return $array[$key];
@@ -340,7 +340,7 @@ class Code extends Template
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      * @SuppressWarnings(PHPMD.RequestAwareBlockMethod)
      */
-    public function getFacebookPixelData()
+    public function getFacebookPixelData(): array
     {
         $data = [];
 
@@ -357,7 +357,7 @@ class Code extends Template
      * @return array
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    private function getProductData()
+    private function getProductData(): array
     {
         if (!$this->helper->isProductView()) {
             return [];
@@ -385,7 +385,7 @@ class Code extends Template
      * @return array
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    private function getCategoryData()
+    private function getCategoryData(): array
     {
         if (!$this->helper->isCategoryView()) {
             return [];

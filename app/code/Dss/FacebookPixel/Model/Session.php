@@ -27,7 +27,7 @@ class Session extends SessionManager
      * @param array $data
      * @return \Dss\FacebookPixel\Model\Session $this
      */
-    public function setAddToCart($data)
+    public function setAddToCart($data): Session
     {
         $this->storage->setData('add_to_cart', $data);
         return $this;
@@ -53,7 +53,7 @@ class Session extends SessionManager
      *
      * @return bool
      */
-    public function hasAddToCart()
+    public function hasAddToCart(): bool
     {
         return $this->storage->hasData('add_to_cart');
     }
@@ -64,7 +64,7 @@ class Session extends SessionManager
      * @param array $data
      * @return \Dss\FacebookPixel\Model\Session $this
      */
-    public function setAddToWishlist($data)
+    public function setAddToWishlist($data): Session
     {
         $this->storage->setData('add_to_wishlist', $data);
         return $this;
@@ -101,7 +101,7 @@ class Session extends SessionManager
      * @param array $data
      * @return \Dss\FacebookPixel\Model\Session $this
      */
-    public function setAddSubscribe($data)
+    public function setAddSubscribe($data): Session
     {
         $this->storage->setData('add_subscribe', $data);
         return $this;
@@ -127,7 +127,7 @@ class Session extends SessionManager
      *
      * @return bool
      */
-    public function hasAddSubscribe()
+    public function hasAddSubscribe(): bool
     {
         return $this->storage->hasData('add_subscribe');
     }
@@ -137,7 +137,7 @@ class Session extends SessionManager
      *
      * @return bool
      */
-    public function hasInitiateCheckout()
+    public function hasInitiateCheckout(): bool
     {
         return $this->storage->hasData('initiate_checkout');
     }
@@ -148,7 +148,7 @@ class Session extends SessionManager
      * @param array $data
      * @return \Dss\FacebookPixel\Model\Session $this
      */
-    public function setInitiateCheckout($data)
+    public function setInitiateCheckout($data): Session
     {
         $this->storage->setData('initiate_checkout', $data);
         return $this;
@@ -174,7 +174,7 @@ class Session extends SessionManager
      *
      * @return bool
      */
-    public function hasSearch()
+    public function hasSearch(): bool
     {
         return $this->storage->hasData('search');
     }
@@ -185,7 +185,7 @@ class Session extends SessionManager
      * @param array $data
      * @return $this
      */
-    public function setSearch($data)
+    public function setSearch($data): Session
     {
         $this->storage->setData('search', $data);
         return $this;
@@ -211,7 +211,7 @@ class Session extends SessionManager
      *
      * @return bool
      */
-    public function hasRegister()
+    public function hasRegister(): bool
     {
         return $this->storage->hasData('customer_register');
     }
@@ -222,7 +222,7 @@ class Session extends SessionManager
      * @param array $data
      * @return $this
      */
-    public function setRegister($data)
+    public function setRegister($data): Session
     {
         $this->storage->setData('customer_register', $data);
         return $this;
@@ -249,7 +249,7 @@ class Session extends SessionManager
      * @param array $data
      * @return $this
      */
-    public function setActionPage($data)
+    public function setActionPage($data): Session
     {
         $this->storage->setData('dss_action_page', $data);
         return $this;
@@ -275,7 +275,7 @@ class Session extends SessionManager
      *
      * @return bool
      */
-    public function hasActionPage()
+    public function hasActionPage(): bool
     {
         return $this->storage->hasData('dss_action_page');
     }

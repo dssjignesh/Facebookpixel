@@ -94,7 +94,7 @@ class Data extends AbstractHelper
      * @param array $data
      * @return false|string
      */
-    public function serializes($data)
+    public function serializes($data): bool|string
     {
         $result = $this->jsonEncoder->encode($data);
         if (false === $result) {
@@ -108,7 +108,7 @@ class Data extends AbstractHelper
      *
      * @return \Magento\Tax\Model\Config
      */
-    public function isTaxConfig()
+    public function isTaxConfig(): Config
     {
         return $this->taxConfig;
     }
@@ -118,7 +118,7 @@ class Data extends AbstractHelper
      *
      * @return array
      */
-    public function listPageDisable()
+    public function listPageDisable(): array
     {
         $list = $this->returnDisablePage();
         if ($list) {
@@ -176,9 +176,9 @@ class Data extends AbstractHelper
      * Is Product view
      *
      * @param mixed $scope
-     * @return bool
+     * @return bool|string
      */
-    public function isProductView($scope = null)
+    public function isProductView($scope = null): bool|string
     {
         return $this->scopeConfig->getValue(
             'dss_facebook_pixel/event_tracking/product_view',
@@ -191,9 +191,9 @@ class Data extends AbstractHelper
      * Is Category View
      *
      * @param mixed $scope
-     * @return bool
+     * @return bool|string
      */
-    public function isCategoryView($scope = null)
+    public function isCategoryView($scope = null): bool|string
     {
         return $this->scopeConfig->getValue(
             'dss_facebook_pixel/event_tracking/category_view',
@@ -206,9 +206,9 @@ class Data extends AbstractHelper
      * Is Initiate checkout
      *
      * @param mixed $scope
-     * @return bool
+     * @return bool|string
      */
-    public function isInitiateCheckout($scope = null)
+    public function isInitiateCheckout($scope = null): bool|string
     {
         return $this->scopeConfig->getValue(
             'dss_facebook_pixel/event_tracking/initiate_checkout',
@@ -221,9 +221,9 @@ class Data extends AbstractHelper
      * Is Purchase
      *
      * @param mixed $scope
-     * @return bool
+     * @return bool|string
      */
-    public function isPurchase($scope = null)
+    public function isPurchase($scope = null): bool|string
     {
         return $this->scopeConfig->getValue(
             'dss_facebook_pixel/event_tracking/purchase',
@@ -236,9 +236,9 @@ class Data extends AbstractHelper
      * Is AddToWishlist
      *
      * @param mixed $scope
-     * @return bool
+     * @return bool|string
      */
-    public function isAddToWishList($scope = null)
+    public function isAddToWishList($scope = null): bool|string
     {
         return $this->scopeConfig->getValue(
             'dss_facebook_pixel/event_tracking/add_to_wishlist',
@@ -251,9 +251,9 @@ class Data extends AbstractHelper
      * Is AddTocart
      *
      * @param mixed $scope
-     * @return bool
+     * @return bool|string
      */
-    public function isAddToCart($scope = null)
+    public function isAddToCart($scope = null): bool|string
     {
         return $this->scopeConfig->getValue(
             'dss_facebook_pixel/event_tracking/add_to_cart',
@@ -266,9 +266,9 @@ class Data extends AbstractHelper
      * Is Registration
      *
      * @param mixed $scope
-     * @return bool
+     * @return bool|string
      */
-    public function isRegistration($scope = null)
+    public function isRegistration($scope = null): bool|string
     {
         return $this->scopeConfig->getValue(
             'dss_facebook_pixel/event_tracking/registration',
@@ -281,9 +281,9 @@ class Data extends AbstractHelper
      * Is Subscribe
      *
      * @param mixed $scope
-     * @return bool
+     * @return bool|string
      */
-    public function isSubscribe($scope = null)
+    public function isSubscribe($scope = null): bool|string
     {
         return $this->scopeConfig->getValue(
             'dss_facebook_pixel/event_tracking/subscribe',
@@ -296,9 +296,9 @@ class Data extends AbstractHelper
      * Is search
      *
      * @param mixed $scope
-     * @return bool
+     * @return bool|string
      */
-    public function isSearch($scope = null)
+    public function isSearch($scope = null): bool|string
     {
         return $this->scopeConfig->getValue(
             'dss_facebook_pixel/event_tracking/search',
@@ -311,9 +311,9 @@ class Data extends AbstractHelper
      * Is Include Tax
      *
      * @param mixed $scope
-     * @return mixed
+     * @return bool|string
      */
-    public function isIncludeTax($scope = null)
+    public function isIncludeTax($scope = null): bool|string
     {
         return $this->scopeConfig->getValue(
             'tax/calculation/price_includes_tax',
@@ -328,7 +328,7 @@ class Data extends AbstractHelper
      * @param string $str
      * @return string
      */
-    public function escapeSingleQuotes($str)
+    public function escapeSingleQuotes($str): string
     {
         return str_replace("'", "\'", $str);
     }
@@ -625,7 +625,7 @@ class Data extends AbstractHelper
      * @return string|null
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getBaseCurrencyCode()
+    public function getBaseCurrencyCode(): string|null
     {
         if ($this->baseCurrencyCode === null) {
             $this->baseCurrencyCode = strtoupper(
@@ -642,7 +642,7 @@ class Data extends AbstractHelper
      * @return string|null
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getCurrentCurrencyCode()
+    public function getCurrentCurrencyCode(): string|null
     {
         if ($this->currentCurrencyCode === null) {
             $this->currentCurrencyCode = strtoupper(
