@@ -18,6 +18,7 @@ declare(strict_types=1);
 namespace Dss\FacebookPixel\Observer;
 
 use Dss\FacebookPixel\Helper\Data;
+use Magento\Framework\Event\Observer;
 use Magento\Bundle\Model\Product\Type;
 use Dss\FacebookPixel\Model\SessionFactory;
 use Magento\Catalog\Model\ProductRepository;
@@ -46,7 +47,7 @@ class AddToCart implements ObserverInterface
      * @return bool
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function execute(\Magento\Framework\Event\Observer $observer)
+    public function execute(Observer $observer): bool
     {
         $items = $observer->getItems();
         $typeConfi = Configurable::TYPE_CODE;
@@ -110,7 +111,7 @@ class AddToCart implements ObserverInterface
      * @return string
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    protected function checkBundleSku($item)
+    protected function checkBundleSku($item): string
     {
         $typeBundle = Type::TYPE_CODE;
         if ($item->getProductType() == $typeBundle) {
