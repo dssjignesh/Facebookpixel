@@ -21,6 +21,18 @@
             <general>
                 <active>0</active>
             </general>
+            <event_tracking>
+                <disable_code>Null</disable_code>
+                <product_view>0</product_view>
+                <category_view>0</category_view>
+                <add_to_cart>0</add_to_cart>
+                <initiate_checkout>0</initiate_checkout>
+                <purchase>0</purchase>
+                <add_to_wishlist>0</add_to_wishlist>
+                <registration>0</registration>
+                <subscribe>0</subscribe>
+                <search>0</search>
+            </event_tracking>
         </dss_facebook_pixel>
     </default>
 </config>
